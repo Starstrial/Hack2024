@@ -129,7 +129,23 @@ class _CrearCuentaWidgetState extends State<CrearCuentaWidget> {
                                 ),
                               ));
 
-                          context.pushNamedAuth('P1', context.mounted);
+                          await authManager.sendEmailVerification();
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(
+                              content: Text(
+                                'Email Sent',
+                                style: TextStyle(
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                ),
+                              ),
+                              duration: const Duration(milliseconds: 4000),
+                              backgroundColor:
+                                  FlutterFlowTheme.of(context).secondary,
+                            ),
+                          );
+
+                          context.pushNamedAuth('ID', context.mounted);
                         },
                         text: 'CONTINUAR',
                         options: FFButtonOptions(

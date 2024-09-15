@@ -167,7 +167,7 @@ class _P7WidgetState extends State<P7Widget> {
                 alignment: const AlignmentDirectional(0.02, 0.59),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('MAIN');
+                    context.pushNamed('MAIN2');
                   },
                   text: '¡Listo! Se parte de nosotros',
                   options: FFButtonOptions(

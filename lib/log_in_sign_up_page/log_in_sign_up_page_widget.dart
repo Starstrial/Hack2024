@@ -478,7 +478,7 @@ class _LogInSignUpPageWidgetState extends State<LogInSignUpPageWidget>
                               return;
                             }
 
-                            context.goNamedAuth('MAIN', context.mounted);
+                            context.goNamedAuth('MAIN2', context.mounted);
                           },
                           text: 'Acceder',
                           options: FFButtonOptions(

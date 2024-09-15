@@ -81,6 +81,11 @@ class UsersRecord extends FirestoreRecord {
   int get dolares => _dolares ?? 0;
   bool hasDolares() => _dolares != null;
 
+  // "photo_ID" field.
+  String? _photoID;
+  String get photoID => _photoID ?? '';
+  bool hasPhotoID() => _photoID != null;
+
   void _initializeFields() {
     _email = snapshotData['email'] as String?;
     _photoUrl = snapshotData['photo_url'] as String?;
@@ -95,6 +100,7 @@ class UsersRecord extends FirestoreRecord {
     _frecuencia = castToType<int>(snapshotData['frecuencia']);
     _beneficios = getDataList(snapshotData['beneficios']);
     _dolares = castToType<int>(snapshotData['dolares']);
+    _photoID = snapshotData['photo_ID'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -142,6 +148,7 @@ Map<String, dynamic> createUsersRecordData({
   String? displayName,
   int? frecuencia,
   int? dolares,
+  String? photoID,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -156,6 +163,7 @@ Map<String, dynamic> createUsersRecordData({
       'display_name': displayName,
       'frecuencia': frecuencia,
       'dolares': dolares,
+      'photo_ID': photoID,
     }.withoutNulls,
   );
 
@@ -180,7 +188,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e1?.displayName == e2?.displayName &&
         e1?.frecuencia == e2?.frecuencia &&
         listEquality.equals(e1?.beneficios, e2?.beneficios) &&
-        e1?.dolares == e2?.dolares;
+        e1?.dolares == e2?.dolares &&
+        e1?.photoID == e2?.photoID;
   }
 
   @override
@@ -197,7 +206,8 @@ class UsersRecordDocumentEquality implements Equality<UsersRecord> {
         e?.displayName,
         e?.frecuencia,
         e?.beneficios,
-        e?.dolares
+        e?.dolares,
+        e?.photoID
       ]);
 
   @override

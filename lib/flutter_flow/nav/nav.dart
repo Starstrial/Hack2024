@@ -71,13 +71,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? const MainWidget() : const LogInSignUpPageWidget(),
+          appStateNotifier.loggedIn ? const Main2Widget() : const LogInSignUpPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
-              ? const MainWidget()
+              ? const Main2Widget()
               : const LogInSignUpPageWidget(),
         ),
         FFRoute(
@@ -139,6 +139,51 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'ID',
           path: '/id',
           builder: (context, params) => const IdWidget(),
+        ),
+        FFRoute(
+          name: 'MAIN2',
+          path: '/main2',
+          builder: (context, params) => const Main2Widget(),
+        ),
+        FFRoute(
+          name: 'avatar_s',
+          path: '/avatarS',
+          builder: (context, params) => const AvatarSWidget(),
+        ),
+        FFRoute(
+          name: 'view_m2',
+          path: '/viewM2',
+          builder: (context, params) => const ViewM2Widget(),
+        ),
+        FFRoute(
+          name: 'view_m1',
+          path: '/viewM1',
+          builder: (context, params) => const ViewM1Widget(),
+        ),
+        FFRoute(
+          name: 'view_m3',
+          path: '/viewM3',
+          builder: (context, params) => const ViewM3Widget(),
+        ),
+        FFRoute(
+          name: 'crea_meta',
+          path: '/creaMeta',
+          builder: (context, params) => const CreaMetaWidget(),
+        ),
+        FFRoute(
+          name: 'm2interac',
+          path: '/m2interac',
+          builder: (context, params) => const M2interacWidget(),
+        ),
+        FFRoute(
+          name: 'm3interacCopy',
+          path: '/m3interacCopy',
+          builder: (context, params) => const M3interacCopyWidget(),
+        ),
+        FFRoute(
+          name: 'm1interacCopy',
+          path: '/m1interacCopy',
+          builder: (context, params) => const M1interacCopyWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
